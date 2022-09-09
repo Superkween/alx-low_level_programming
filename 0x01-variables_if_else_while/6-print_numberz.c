@@ -4,18 +4,18 @@
 /**
  *main - Prints alphabet
  *@void: Empty parameter list for main.
- *Description: Prints the alphabet in reverse order
- *can only use putchar
+ *Description: Prints numbers 0-9
  *Return: 0 (success)
  */
 int main(void)
-{ 
-	char alphabet;
+{
+	int num = 48
 
-	while (alphabet = 122 ; alphabet > = 97 ; alphabet --)
-	{
-		putchar(letter);
-	}
+		while (num <= 57)
+		{
+			putchar(num);
+				num++;
+		}
 	putchar('\n');
 	return (0);
 }
