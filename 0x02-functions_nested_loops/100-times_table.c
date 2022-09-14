@@ -5,7 +5,7 @@
  *Description: if 'n' is greater than 15 or less than 0, print nothing.
  *@n: int type number
  */
-void print_times_table(int n)
+int print_times_table (void)
 {
 	int x = 0, y, z;
 
