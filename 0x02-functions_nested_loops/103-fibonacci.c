@@ -2,7 +2,8 @@
 
 /**
  *main - main block
- *Description: print the sumof even Fibonacci numbersup to a fib value not exceeding 4,000,000.
+ *Description: print the sumof even Fibonacci numbers up to a fib value
+ *not exceeding 4,000,000.
  *Return: 0
  */
 int main(void)
