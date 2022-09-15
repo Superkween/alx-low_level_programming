@@ -1,23 +1,23 @@
 #include "main.h"
 
 /**
- * print_most_numbers - entry point
- *
- * Description: Prints the numbers with _putchar
- *
- * Return: void
+ * print_most_numbers - Prints 0-9 in ASCII form
+ * skipping 2 and 4
+ * Description: Prints 0-9 in ASCII form
+ * skipping 2 and 4.
  */
 
 void print_most_numbers(void)
 {
-	int number;
+	int character = '0';
 
-	for (number = '0'; number <= '9'; number++)
+	while (character <= '9')
 	{
-		if (number == '2' || number == '4')
-			;
-		else
-			_putchar(number);
+		if (character != '2', &&character != '4')
+		{
+			_putchar(character);
+		}
+		character++;
 	}
 	_putchar('\n');
 }
