@@ -81,7 +81,7 @@ int _atoi(char *s)
 	sign = find_sign(s);
 
 	while ((s[idx_digit_starts] >= '0' && s[idx_digit_starts] <= '9')
-			&& (idx_digit_starts <= _strlen(s))) /* count digits to print */
+			&& (idx_digit_starts <= _strlen(s))) /* count digits to prints */
 	{
 			digits_to_print += 1;
 			idx_digit_starts++;
