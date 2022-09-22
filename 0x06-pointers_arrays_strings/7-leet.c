@@ -9,7 +9,7 @@ char *leet(char *s)
 {
 	int i, j;
 
-	char src[] = "aeotIAEOTL";
+	char src[] = "aeotlAEOTL";
 	char dest[] = "4307143071";
 
 
