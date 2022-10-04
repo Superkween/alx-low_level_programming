@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- *  _strlen - returns the length of a string
+ *  count_word - helper function to count the number of words in a string
  *  @s: string
  *  Return: length
  */
