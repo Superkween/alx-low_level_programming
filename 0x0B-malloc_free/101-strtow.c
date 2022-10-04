@@ -8,56 +8,71 @@
  *  Return: length
  */
 
-int _strlen(char *s)
+int count_word(char *s)
 {
-	int len = 0;
+	int flag, c, w;
 
-	while (*s != '\0')
-		len++, s++;
+	flag = 0;
+	w = 0;
 
-	return (len);
+	for (c = 0; s[c] != '\0'; c++)
+	{
+		if (s[c] == ' ')
+			flag = 0;
+		else if (flag == 0)
+		{
+			flag = 1;
+			w++;
+		}
+	}
+
+	return (w);
 }
 
 /**
- * argstostr - concatenates all the arguments of your program
- * @ac: argc
- * @av: arguments
- * Return: pointer to array
+ *  **strtow - splits a string into words
+ *  @str: string to split
+ *
+ *  Return: pointer to an array of strings (Success)
  */
-
-char *argstostr(int ac, char **av)
+char **strtow(char *str)
 {
-	char *s;
-	int len = 0, i, j, k = 0;
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
 
-	if (ac == 0 || av == NULL) /* validate input */
+	while (*(str + len))
+		len++;
+	words = count_word(str);
+	if (words == 0)
 		return (NULL);
 
-	/* find length to malloc */
-	for (i = 0; i < ac; i++)
-	{
-		len += _strlen(av[i]);
-	}
-	len += (ac + 1); /* add space for newlines and null terminator */
-
-	/* allocate memory and free if error */
-	s = malloc(len * sizeof(char));
-
-	if (s == NULL)
-	{
-		free(s);
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
 		return (NULL);
-	}
 
-	/* insert each arg into *str */
-	for (i = 0; i < ac; i++)
+	for (i = 0; i <= len; i++)
 	{
-		for (j = 0; j < _strlen(av[i]); j++)
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			s[k++] = av[i][j];
+			if (c)
+			{
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
+					return (NULL);
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				matrix[k] = tmp - c;
+				k++;
+				c = 0;
+			}
 		}
-		s[k++] = '\n';
+		else if (c++ == 0)
+			start = i;
 	}
 
-	return (s);
+	matrix[k] = NULL;
+
+	return (matrix);
 }
